@@ -6,6 +6,7 @@ import Popular from "../MovieItem/Popular";
 import TopRated from "../MovieItem/TopRated";
 import UpComing from "../MovieItem/Upcoming";
 import "./movieList.css";
+import TVShows from "../MovieItem/TVShows";
 
 export default function MovieList() {
   let nowPlayingMovieListData = useSelector(
@@ -20,6 +21,7 @@ export default function MovieList() {
   let topRatedMovieListData = useSelector(
     (state) => state.movieSlice.topRatedMovieList
   );
+  let tvShowListData = useSelector((state) => state.tvShowsSlice.tvShowList);
   return (
     <div className="flex text-white space-x-5 my-5">
       <div className=" pr-5 border-r-grey border-r-8">
@@ -31,7 +33,7 @@ export default function MovieList() {
         </div>
         <div className="space-y-5 ">
           {upComingMovieListData.map((item, index) => {
-            return index <= 3 ? <UpComing data={item} /> : <></>;
+            return index <= 4 ? <UpComing data={item} /> : <></>;
           })}
         </div>
       </div>
@@ -46,6 +48,19 @@ export default function MovieList() {
           <div className="flex space-x-5 ">
             {nowPlayingMovieListData.map((item, index) => {
               return index <= 2 ? <NowPlaying data={item} /> : <></>;
+            })}
+          </div>
+        </div>
+        <div className="my-4">
+          <div className="flex items-center justify-between">
+            <p className="text-3xl moveListFont cursor-default">TV Shows</p>
+            <p id="upCSeeAll" className="flex items-center text-sm">
+              See all <RiArrowDropRightFill size={40} />
+            </p>
+          </div>
+          <div className="flex space-x-5">
+            {tvShowListData.map((item, index) => {
+              return index <= 2 ? <TVShows data={item} /> : <></>;
             })}
           </div>
         </div>

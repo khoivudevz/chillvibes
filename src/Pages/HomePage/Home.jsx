@@ -7,7 +7,9 @@ import {
   settopRatedMovieList,
   setupComingMovieList,
 } from "../../redux/movieSlice";
+import { setTVShowList } from "../../redux/tvShowsSlice";
 import { movieServices } from "../../services/movieService";
+import { tvServices } from "../../services/tvService";
 import MovieList from "./MovieList/MovieList";
 
 export default function Home() {
@@ -42,6 +44,14 @@ export default function Home() {
       .getPopularMovieList()
       .then((res) => {
         dispatch(setpopularMovieList(res.data.results));
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
+    tvServices
+      .getTopRatedTVShows()
+      .then((res) => {
+        dispatch(setTVShowList(res.data.results));
       })
       .catch((err) => {
         console.log("err", err);
