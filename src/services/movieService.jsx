@@ -35,6 +35,24 @@ export const movieServices = {
       method: "GET",
     });
   },
+  getSimilarMovies(path) {
+    return axios({
+      url: `${BASE_URL}3/movie/${path}/similar?api_key=${KEY}&language=en-US&page=1`,
+      method: "GET",
+    });
+  },
+  getReviews(path) {
+    return axios({
+      url: `${BASE_URL}3/movie/${path}/reviews?api_key=${KEY}&language=en-US&page=1`,
+      method: "GET",
+    });
+  },
+  getTrendingMovies() {
+    return axios({
+      url: `${BASE_URL}3/movie/3/trending/all/week?api_key=${KEY}`,
+      method: "GET",
+    });
+  },
   getImageBig(path) {
     return `${IMG_BASE_URL}t/p/original/${path}`;
   },

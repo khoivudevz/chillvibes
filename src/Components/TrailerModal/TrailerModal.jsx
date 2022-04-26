@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Modal, Button } from "antd";
 import { BsFillPlayCircleFill } from "react-icons/bs";
 import ReactPlayer from "react-player";
@@ -8,9 +8,6 @@ import { movieServices } from "../../services/movieService";
 export default function TrailerModal({ data }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [trailer, settrailer] = useState(null);
-  useEffect(() => {
-    console.log("trailer", trailer);
-  }, [trailer]);
 
   const showModal = () => {
     setIsModalVisible(true);

@@ -1,5 +1,7 @@
 import React from "react";
 import moment from "moment";
+import { Link } from "react-router-dom";
+import { CgMoreO } from "react-icons/cg";
 import "./movieItem.css";
 import { BsStarFill } from "react-icons/bs";
 import { movieServices } from "../../../services/movieService";
@@ -10,7 +12,17 @@ export default function Popular({ data }) {
     <div className="w-96 h-56 rounded-3xl overflow-hidden">
       <div className="w-full h-full relative">
         <img src={movieServices.getImageBig(data.backdrop_path)} alt="" />
-
+        <Link
+          to={`/details/${data.id}`}
+          className="text-white hover:text-orangeColor"
+        >
+          <div>
+            <CgMoreO
+              className="absolute top-5 right-3 cursor-pointer "
+              size={25}
+            />
+          </div>
+        </Link>
         <div className="w-full h-1/4 absolute bottom-0 backdrop-blur-sm bg-white/30 flex items-center justify-between px-5 titleFont">
           <div className="flex items-center justify-between space-x-2 ">
             <TrailerModal data={data.id} />
