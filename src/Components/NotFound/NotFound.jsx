@@ -12,7 +12,7 @@ export default function NotFound() {
       <p>Đường dẫn không hợp lệ!</p>
       <Link to="/">
         <button className="px-4 py-4 bg-orangeColor rounded-2xl">
-          Đi tới trang chủ!
+          <p className="text-white mb-0">Đi tới trang chủ!</p>
         </button>
       </Link>
     </div>

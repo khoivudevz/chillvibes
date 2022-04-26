@@ -1,0 +1,18 @@
+#trailerModal .ant-btn-primary {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+.ant-modal-wrap {
+  top: 20% !important;
+}
+.ant-modal-footer {
+  display: none !important;
+}
+.ant-modal-close {
+  display: none !important;
+}
+
+.ant-modal-content {
+  background-color: transparent !important;
+}

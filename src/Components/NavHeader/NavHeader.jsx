@@ -12,10 +12,7 @@ export default function NavHeader() {
             className="w-full h-full"
           />
         </div>
-        <div
-          id="navText"
-          className="flex items-center space-x-3 text-white font-serif text-xl "
-        >
+        <div className="flex items-center space-x-3 text-white font-serif text-xl  navText">
           <p>Movies</p>
           <p>TV Shows</p>
           <p>Animaitons</p>
@@ -25,10 +22,7 @@ export default function NavHeader() {
           <div>
             <SearchBar />
           </div>
-          <button
-            id="btnText"
-            className="px-6 py-3 bg-orangeColor rounded-3xl text-white text-base"
-          >
+          <button className="px-6 py-3 bg-orangeColor rounded-3xl text-white text-base navText">
             Sign In
           </button>
         </div>

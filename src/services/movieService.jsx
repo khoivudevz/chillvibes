@@ -29,6 +29,12 @@ export const movieServices = {
       method: "GET",
     });
   },
+  getTrailerMovie(path) {
+    return axios({
+      url: `${BASE_URL}3/movie/${path}/videos?api_key=${KEY}&language=en-US&page=1`,
+      method: "GET",
+    });
+  },
   getImageBig(path) {
     return `${IMG_BASE_URL}t/p/original/${path}`;
   },
