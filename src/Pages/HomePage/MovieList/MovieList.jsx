@@ -1,12 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RiArrowDropRightFill } from "react-icons/ri";
-import NowPlaying from "../MovieItem/NowPlaying";
-import Popular from "../MovieItem/Popular";
-import TopRated from "../MovieItem/TopRated";
-import UpComing from "../MovieItem/Upcoming";
-import "./movieList.css";
-import TVShows from "../MovieItem/TVShows";
+import { Link } from "react-router-dom";
+import "../../../Components/MovieItem/movieItem.css";
+import MovieItem from "../../../Components/MovieItem/MovieItem";
+import TvShowsItem from "../../../Components/MovieItem/TvShowsItem";
 
 export default function MovieList() {
   let nowPlayingMovieListData = useSelector(
@@ -27,13 +25,17 @@ export default function MovieList() {
       <div className=" pr-5 border-r-grey border-r-8">
         <div className="flex items-center justify-between">
           <p className="text-3xl moveListFont cursor-default">Up Coming</p>
-          <p id="upCSeeAll" className="flex items-center text-sm">
-            See all <RiArrowDropRightFill size={40} />
-          </p>
+          <div className="aLink">
+            <Link to="/upcoming">
+              <p id="upCSeeAll" className="flex items-center text-sm">
+                See all <RiArrowDropRightFill size={40} />
+              </p>
+            </Link>
+          </div>
         </div>
         <div className="space-y-5 ">
           {upComingMovieListData.map((item, index) => {
-            return index <= 4 ? <UpComing data={item} /> : <></>;
+            return index <= 4 ? <MovieItem data={item} /> : <></>;
           })}
         </div>
       </div>
@@ -41,52 +43,68 @@ export default function MovieList() {
         <div className="my-4">
           <div className="flex items-center justify-between">
             <p className="text-3xl moveListFont cursor-default">Now Playing</p>
-            <p id="upCSeeAll" className="flex items-center text-sm">
-              See all <RiArrowDropRightFill size={40} />
-            </p>
+            <div className="aLink">
+              <Link to="/nowplaying">
+                <p id="upCSeeAll" className="flex items-center text-sm">
+                  See all <RiArrowDropRightFill size={40} />
+                </p>
+              </Link>
+            </div>
           </div>
           <div className="flex space-x-5 ">
             {nowPlayingMovieListData.map((item, index) => {
-              return index <= 2 ? <NowPlaying data={item} /> : <></>;
+              return index <= 2 ? <MovieItem data={item} /> : <></>;
             })}
           </div>
         </div>
         <div className="my-4">
           <div className="flex items-center justify-between">
             <p className="text-3xl moveListFont cursor-default">TV Shows</p>
-            <p id="upCSeeAll" className="flex items-center text-sm">
-              See all <RiArrowDropRightFill size={40} />
-            </p>
+            <div className="aLink">
+              <Link to="/tvshows">
+                <p id="upCSeeAll" className="flex items-center text-sm">
+                  See all <RiArrowDropRightFill size={40} />
+                </p>
+              </Link>
+            </div>
           </div>
           <div className="flex space-x-5">
             {tvShowListData.map((item, index) => {
-              return index <= 2 ? <TVShows data={item} /> : <></>;
+              return index <= 2 ? <TvShowsItem data={item} /> : <></>;
             })}
           </div>
         </div>
         <div className="my-4">
           <div className="flex items-center justify-between">
             <p className="text-3xl moveListFont cursor-default">Popular</p>
-            <p id="upCSeeAll" className="flex items-center text-sm">
-              See all <RiArrowDropRightFill size={40} />
-            </p>
+            <div className="aLink">
+              <Link to="/popular">
+                <p id="upCSeeAll" className="flex items-center text-sm">
+                  See all <RiArrowDropRightFill size={40} />
+                </p>
+              </Link>
+            </div>
           </div>
           <div className="flex space-x-5">
             {popularMovieListData.map((item, index) => {
-              return index <= 2 ? <Popular data={item} /> : <></>;
+              return index <= 2 ? <MovieItem data={item} /> : <></>;
             })}
           </div>
         </div>
         <div className="my-4">
           <div className="flex items-center justify-between">
             <p className="text-3xl moveListFont cursor-default">Top Rated</p>
-            <p id="upCSeeAll" className="flex items-center text-sm">
-              See all <RiArrowDropRightFill size={40} />
-            </p>
+            <div className="aLink">
+              <Link to="/toprated">
+                <p id="upCSeeAll" className="flex items-center text-sm">
+                  See all <RiArrowDropRightFill size={40} />
+                </p>
+              </Link>
+            </div>
           </div>
           <div className="flex space-x-5">
             {topRatedMovieListData.map((item, index) => {
-              return index <= 2 ? <TopRated data={item} /> : <></>;
+              return index <= 2 ? <MovieItem data={item} /> : <></>;
             })}
           </div>
         </div>

@@ -49,7 +49,13 @@ export const movieServices = {
   },
   getTrendingMovies() {
     return axios({
-      url: `${BASE_URL}3/movie/3/trending/all/week?api_key=${KEY}`,
+      url: `${BASE_URL}3/trending/all/week?api_key=${KEY}`,
+      method: "GET",
+    });
+  },
+  getDetails(path) {
+    return axios({
+      url: `${BASE_URL}3/movie/${path}?api_key=${KEY}&language=en-US`,
       method: "GET",
     });
   },
@@ -58,5 +64,29 @@ export const movieServices = {
   },
   getImageSmall(path) {
     return `${IMG_BASE_URL}t/p/w500/${path}`;
+  },
+  getNowPlayingMoviePage(page) {
+    return axios({
+      url: `${BASE_URL}3/movie/now_playing?api_key=${KEY}&language=en-US&page=${page}`,
+      method: "GET",
+    });
+  },
+  getUpComingMoviePage(page) {
+    return axios({
+      url: `${BASE_URL}3/movie/upcoming?api_key=${KEY}&language=en-US&page=${page}`,
+      method: "GET",
+    });
+  },
+  getPopularMoviePage(page) {
+    return axios({
+      url: `${BASE_URL}3/movie/popular?api_key=${KEY}&language=en-US&page=${page}`,
+      method: "GET",
+    });
+  },
+  getTopRatedMoviePage(page) {
+    return axios({
+      url: `${BASE_URL}3/movie/top_rated?api_key=${KEY}&language=en-US&page=${page}`,
+      method: "GET",
+    });
   },
 };

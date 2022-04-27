@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import MovieItem from "../../Components/MovieItem/MovieItem";
 import { Pagination } from "antd";
-import { movieServices } from "../../services/movieService";
 import "../../Components/MovieItem/movieItem.css";
+import { tvServices } from "../../services/tvService";
+import TvShowsItem from "../../Components/MovieItem/TvShowsItem";
 
-export default function SeeAllNowPlaying() {
+export default function SeeAllTVShows() {
   let [page, setpage] = useState(1);
   let [data, setdata] = useState(null);
   let [total, settotal] = useState(null);
   useEffect(() => {
-    movieServices
-      .getNowPlayingMoviePage(page)
+    tvServices
+      .getTopRatedTVShowsPage(page)
       .then((res) => {
         setdata(res.data.results);
         settotal(res.data.total_results);
@@ -24,10 +24,10 @@ export default function SeeAllNowPlaying() {
   };
   return (
     <div className="container mx-auto my-20">
-      <p className="movieNameFont text-white text-3xl">Now playing</p>
+      <p className="movieNameFont text-white text-3xl">TV SHOWS</p>
       <div className="grid grid-cols-3 gap-20">
         {data?.map((item) => {
-          return <MovieItem data={item} />;
+          return <TvShowsItem data={item} />;
         })}
       </div>
       <div className="flex items-center justify-center my-20">

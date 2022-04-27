@@ -9,7 +9,7 @@ const onSearch = (value) => console.log(value);
 export default function SearchBar() {
   return (
     <Space direction="vertical">
-      <Search placeholder="input search text" onSearch={onSearch} enterButton />
+      <Search placeholder="Sreach..." onSearch={onSearch} enterButton />
     </Space>
   );
 }

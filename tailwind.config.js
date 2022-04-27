@@ -9,5 +9,5 @@ module.exports = {
       grey: "#1f1f22",
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };

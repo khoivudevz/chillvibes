@@ -12,7 +12,19 @@ export const tvServices = {
       method: "GET",
     });
   },
-  getSimilarMovies(path) {
+  getTopRatedTVShowsPage(page) {
+    return axios({
+      url: `${BASE_URL}3/tv/popular?api_key=${KEY}&language=en-US&page=${page}`,
+      method: "GET",
+    });
+  },
+  getDetails(path) {
+    return axios({
+      url: `${BASE_URL}3/tv/${path}?api_key=${KEY}&language=en-US`,
+      method: "GET",
+    });
+  },
+  getSimilarTVShows(path) {
     return axios({
       url: `${BASE_URL}3/tv/${path}/similar?api_key=${KEY}&language=en-US&page=1`,
       method: "GET",
@@ -21,6 +33,12 @@ export const tvServices = {
   getReviews(path) {
     return axios({
       url: `${BASE_URL}3/tv/${path}/reviews?api_key=${KEY}&language=en-US&page=1`,
+      method: "GET",
+    });
+  },
+  getTrailerTVShows(path) {
+    return axios({
+      url: `${BASE_URL}3/tv/${path}/videos?api_key=${KEY}&language=en-US`,
       method: "GET",
     });
   },

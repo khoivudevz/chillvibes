@@ -1,0 +1,11 @@
+.movieNameFont {
+  font-family: "Bebas Neue", cursive;
+}
+
+.overviewFont {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.ant-progress-circle .ant-progress-text {
+  color: white !important;
+}
