@@ -45,7 +45,7 @@ export default function TrailerModal({ data }) {
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
-        distroyOnClose={true}
+        destroyOnClose={true}
       >
         <ReactPlayer
           url={

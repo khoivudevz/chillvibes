@@ -46,7 +46,7 @@ export default function TVShowsTrailerModal({ data }) {
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
-        distroyOnClose={true}
+        destroyOnClose={true}
       >
         <ReactPlayer
           url={
