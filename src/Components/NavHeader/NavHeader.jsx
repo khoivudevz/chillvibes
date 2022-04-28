@@ -1,6 +1,6 @@
 import React from "react";
+import { FaSearch } from "react-icons/fa";
 import "./navHeader.css";
-import SearchBar from "../NavHeader/SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 export default function NavHeader() {
   return (
@@ -21,10 +21,13 @@ export default function NavHeader() {
           <p>Animaitons</p>
           <p>Plans</p>
         </div>
-        <div className="flex items-center justify-center space-x-3">
-          <div>
-            <SearchBar />
-          </div>
+        <div className="flex items-center justify-center space-x-4">
+          <Link to="/search">
+            <div className="flex items-center space-x-1">
+              <FaSearch color="#f36f45" size={20} />
+              <p className="text-orangeColor text-lg mb-0">Sreach...</p>
+            </div>
+          </Link>
           <button className="px-6 py-3 bg-orangeColor rounded-3xl text-white text-base navText">
             Sign In
           </button>

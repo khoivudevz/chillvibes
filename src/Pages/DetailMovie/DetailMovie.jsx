@@ -6,11 +6,13 @@ import { useParams } from "react-router-dom";
 import { movieServices } from "../../services/movieService";
 import DetailMovieCarousel from "./DetailMovieCarousel";
 import "../../Components/MovieItem/movieItem.css";
+import UsersCmt from "./UsersCmt";
 export default function DetailMovie() {
   let { id } = useParams();
   const [inforData, setinforData] = useState(null);
   const [trailer, settrailer] = useState(null);
   const [similarMovies, setsimilarMovies] = useState(null);
+  const [cmt, setcmt] = useState(null);
   useEffect(() => {
     movieServices
       .getDetails(id)
@@ -42,6 +44,14 @@ export default function DetailMovie() {
           console.log("err", err);
         });
     }
+    movieServices
+      .getReviews(id)
+      .then((res) => {
+        setcmt(res.data.results);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
   }, []);
   return (
     <div>
@@ -87,6 +97,15 @@ export default function DetailMovie() {
                 Release date:{" "}
                 {moment(inforData?.release_date).format("MMMM DD, YYYY")}
               </p>
+            </div>
+          </div>
+        </div>
+        <div className="my-10">
+          <div className="container mx-auto ">
+            <div className="grid grid-cols-3 gap-5">
+              {cmt?.map((item, index) => {
+                return index <= 5 ? <UsersCmt data={item} /> : <></>;
+              })}
             </div>
           </div>
         </div>

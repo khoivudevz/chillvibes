@@ -9,6 +9,7 @@ import SeeAllUpComing from "./Pages/SeeAllUpComing/SeeAllUpComing";
 import SeeAllPopular from "./Pages/SeeAllPopular/SeeAllPopular";
 import SeeAllTopRated from "./Pages/SeeAllTopRated/SeeAllTopRated";
 import SeeAllTVShows from "./Pages/SeeAllTVShows/SeeAllTVShows";
+import searchPage from "./Pages/Sreach/SearchPage";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
             path="/tvshows"
             element={<Layout Components={SeeAllTVShows} />}
           />
+          <Route path="/search" element={<Layout Components={searchPage} />} />
         </Routes>
       </BrowserRouter>
     </div>

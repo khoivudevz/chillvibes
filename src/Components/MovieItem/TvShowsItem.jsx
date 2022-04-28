@@ -8,7 +8,6 @@ import { movieServices } from "../../services/movieService";
 import TVShowsTrailerModal from "../TrailerModal/TVShowsTrailerModal";
 
 export default function TvShowsItem({ data }) {
-  console.log("data", data);
   return (
     <div className="w-96 h-56 rounded-3xl overflow-hidden">
       <div className="w-full h-full relative">

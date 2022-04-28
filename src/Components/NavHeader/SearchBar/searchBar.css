@@ -8,3 +8,9 @@
   color: #fff !important;
   border-color: #000 !important;
 }
+.ant-input-search
+  > .ant-input-group
+  > .ant-input-group-addon:last-child
+  .ant-input-search-button {
+  cursor: default;
+}

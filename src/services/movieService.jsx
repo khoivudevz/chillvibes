@@ -89,4 +89,10 @@ export const movieServices = {
       method: "GET",
     });
   },
+  getsearchMovie(page, keyword) {
+    return axios({
+      url: `${BASE_URL}3/search/keyword?api_key=${KEY}&query=${keyword}&page=${page}`,
+      method: "GET",
+    });
+  },
 };

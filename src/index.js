@@ -8,11 +8,13 @@ import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import movieSlice from "./redux/movieSlice";
 import tvShowsSlice from "./redux/tvShowsSlice";
+import searchSlice from "./redux/searchSlice";
 
 const store = configureStore({
   reducer: {
     movieSlice,
     tvShowsSlice,
+    searchSlice,
   },
 });
 
