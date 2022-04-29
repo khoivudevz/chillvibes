@@ -10,6 +10,7 @@ import SeeAllPopular from "./Pages/SeeAllPopular/SeeAllPopular";
 import SeeAllTopRated from "./Pages/SeeAllTopRated/SeeAllTopRated";
 import SeeAllTVShows from "./Pages/SeeAllTVShows/SeeAllTVShows";
 import searchPage from "./Pages/Sreach/SearchPage";
+import Favorite from "./Pages/Favorite/Favorite";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
             element={<Layout Components={SeeAllTVShows} />}
           />
           <Route path="/search" element={<Layout Components={searchPage} />} />
+          <Route path="/favorite" element={<Layout Components={Favorite} />} />
         </Routes>
       </BrowserRouter>
     </div>

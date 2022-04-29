@@ -39,7 +39,9 @@ export default function TrailerModal({ data }) {
   return (
     <div id="trailerModal">
       <Button type="primary" onClick={showModal}>
-        <BsFillPlayCircleFill size={30} />
+        <div className="hover:text-orangeColor">
+          <BsFillPlayCircleFill size={30} />
+        </div>
       </Button>
       <Modal
         visible={isModalVisible}

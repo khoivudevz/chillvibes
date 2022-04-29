@@ -1,8 +1,12 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
+import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import "./navHeader.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import favoriteListSlice from "../../redux/favoriteListSlice";
 export default function NavHeader() {
+  let favoriteValue = useSelector((state) => state.favoriteListSlice.value);
   return (
     <div className="border-b-4 border-b-grey">
       <div className="container mx-auto flex items-center justify-between h-24  ">
@@ -28,9 +32,20 @@ export default function NavHeader() {
               <p className="text-orangeColor text-lg mb-0">Sreach...</p>
             </div>
           </Link>
-          <button className="px-6 py-3 bg-orangeColor rounded-3xl text-white text-base navText">
-            Sign In
-          </button>
+          <Link to="/favorite">
+            <div className="relative px-4 py-3 bg-orangeColor rounded-3xl text-white text-base navText hover:bg-white hover:text-orangeColor">
+              <div>
+                <BsFillBookmarkHeartFill size={30} />
+              </div>
+              {favoriteValue > 0 ? (
+                <div className="w-6 h-6 bg-white text-orangeColor rounded-full flex items-center justify-center absolute -top-3 right-0">
+                  {favoriteValue}
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
+          </Link>
         </div>
       </div>
     </div>

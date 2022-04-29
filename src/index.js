@@ -9,12 +9,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import movieSlice from "./redux/movieSlice";
 import tvShowsSlice from "./redux/tvShowsSlice";
 import searchSlice from "./redux/searchSlice";
+import favoriteListSlice from "./redux/favoriteListSlice";
 
 const store = configureStore({
   reducer: {
     movieSlice,
     tvShowsSlice,
     searchSlice,
+    favoriteListSlice,
   },
 });
 

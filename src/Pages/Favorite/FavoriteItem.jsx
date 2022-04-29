@@ -1,19 +1,26 @@
 import React from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
-import "./movieItem.css";
-import { BsStarFill, BsFillBookmarkHeartFill } from "react-icons/bs";
+import "../../Components/MovieItem/movieItem.css";
+import { BsStarFill, BsFillBookmarkDashFill } from "react-icons/bs";
 import { CgMoreO } from "react-icons/cg";
-import { movieServices } from "../../services/movieService";
-import TVShowsTrailerModal from "../TrailerModal/TVShowsTrailerModal";
+import { useDispatch } from "react-redux";
 
-export default function TvShowsItem({ data }) {
+import { movieServices } from "../../services/movieService";
+import TrailerModal from "../../Components/TrailerModal/TrailerModal";
+import { removeFavoriteList } from "../../redux/favoriteListSlice";
+
+export default function FavoriteItem({ data }) {
+  let dispatch = useDispatch();
+  let handleRemoveBookmark = () => {
+    dispatch(removeFavoriteList(data.id));
+  };
   return (
     <div className="w-96 h-56 rounded-3xl overflow-hidden">
       <div className="w-full h-full relative">
         <img src={movieServices.getImageBig(data?.backdrop_path)} alt="" />
         <Link
-          to={`/detailstvshow/${data?.id}`}
+          to={`/details/${data?.id}`}
           className="text-white hover:text-orangeColor"
         >
           <div>
@@ -23,19 +30,22 @@ export default function TvShowsItem({ data }) {
             />
           </div>
         </Link>
-        <div className="text-white hover:text-orangeColor ">
-          <BsFillBookmarkHeartFill
+        <div
+          className="text-white hover:text-orangeColor "
+          onClick={handleRemoveBookmark}
+        >
+          <BsFillBookmarkDashFill
             className="absolute top-14 right-3 cursor-pointer "
             size={25}
           />
         </div>
         <div className="w-full h-1/4 absolute bottom-0 backdrop-blur-sm bg-white/30 flex items-center justify-between px-5 titleFont">
           <div className="flex items-center justify-between space-x-2 ">
-            <TVShowsTrailerModal data={data?.id} />
+            <TrailerModal data={data?.id} />
             <div className="cursor-default">
-              <p className="mb-0 text-white">{data?.name}</p>
+              <p className="mb-0 text-white">{data?.title}</p>
               <p className="mb-0 text-white">
-                {moment(data?.first_air_date).format("MMMM YYYY")}
+                {moment(data?.release_date).format("MMMM YYYY")}
               </p>
             </div>
           </div>

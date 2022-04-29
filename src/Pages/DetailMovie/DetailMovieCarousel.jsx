@@ -63,7 +63,7 @@ export default function DetailMovieCarousel({ data }) {
                     <BsStarFill size={20} color="white" />
                   </div>
                   <div className="text-white">
-                    {moment(movie?.release_date).format("MMMM YYYY")}
+                    {Math.round(movie?.vote_average * 100) / 100}
                   </div>
                 </div>
               </div>

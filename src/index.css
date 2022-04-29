@@ -38,6 +38,7 @@ code {
   .ant-pagination-item-ellipsis {
   color: #f36f45 !important;
 }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

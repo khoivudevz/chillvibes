@@ -24,6 +24,7 @@ export default function SearchPage() {
   let onChange = (pageChange) => {
     setpage(pageChange);
   };
+
   return (
     <div className="h-screen my-20">
       <div className="container mx-auto">
