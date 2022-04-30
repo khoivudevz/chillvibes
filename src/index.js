@@ -11,6 +11,7 @@ import tvShowsSlice from "./redux/tvShowsSlice";
 import searchSlice from "./redux/searchSlice";
 import favoriteListSlice from "./redux/favoriteListSlice";
 import loadingSlice from "./redux/loadingSlice";
+import tvShowBookMarksSlice from "./redux/tvShowBookMarksSlice";
 
 const store = configureStore({
   reducer: {
@@ -19,6 +20,7 @@ const store = configureStore({
     searchSlice,
     favoriteListSlice,
     loadingSlice,
+    tvShowBookMarksSlice,
   },
 });
 

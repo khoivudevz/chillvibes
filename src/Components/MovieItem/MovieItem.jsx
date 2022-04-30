@@ -15,7 +15,6 @@ export default function MovieItem({ data }) {
   let handleBookmark = () => {
     dispatch(setFavoriteList(data));
   };
-  useEffect(() => {}, []);
 
   return (
     <div className="w-96 h-56 rounded-3xl overflow-hidden">
