@@ -1,44 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { Pagination } from "antd";
-import FavoriteItem from "./FavoriteItem";
+import React from "react";
+import { Tabs } from "antd";
+import "./favorite.css";
+import MovieFavorite from "./MovieFavorite";
+import TVShowsFavorite from "./TVShowsFavorite";
+const { TabPane } = Tabs;
 
+function callback(key) {
+  console.log(key);
+}
 export default function Favorite() {
-  let [currentPage, setcurrentPage] = useState(1);
-  let [postsPerPage, setpostsPerPage] = useState(12);
-  let localStorageData = localStorage.getItem("favoriteList");
-  let favoriteListArr = JSON.parse(localStorageData);
-  let totalPages = Math.ceil(favoriteListArr?.length);
-  let [favoriteList, setfavoriteList] = useState(null);
-  useEffect(() => {
-    let localStorageData = localStorage.getItem("favoriteList");
-    setfavoriteList(JSON.parse(localStorageData));
-  }, [favoriteList]);
-
-  let indexOfLastPost = currentPage * postsPerPage;
-  let indexOfFirstPost = indexOfLastPost - postsPerPage;
-  let currentPosts = favoriteList?.slice(indexOfFirstPost, indexOfLastPost);
-  let onChange = (page) => {
-    setcurrentPage(page);
-  };
   return (
-    <div className="container mx-auto my-32">
-      <p className="movieNameFont text-white text-3xl">Favorite List</p>
-
-      <div className="grid grid-cols-3 gap-20">
-        {currentPosts?.map((item) => {
-          return <FavoriteItem data={item} />;
-        })}
-      </div>
-
-      <div className="flex items-center justify-center my-40">
-        <Pagination
-          defaultCurrent={currentPage}
-          pageSize={postsPerPage}
-          onChange={onChange}
-          total={totalPages}
-        />
-      </div>
-      <div className="mb-96"></div>
+    <div className="container mx-auto">
+      <Tabs defaultActiveKey="1" onChange={callback}>
+        <TabPane
+          tab={<p className="text-white text-3xl mb-0 movieNameFont">Movie</p>}
+          key="1"
+        >
+          <MovieFavorite />
+        </TabPane>
+        <TabPane
+          tab={
+            <p className="text-white text-3xl mb-0 movieNameFont">TV SHOWS</p>
+          }
+          key="2"
+        >
+          <TVShowsFavorite />
+        </TabPane>
+      </Tabs>
     </div>
   );
 }

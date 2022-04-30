@@ -5,7 +5,13 @@ import "./navHeader.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 export default function NavHeader() {
-  let favoriteValue = useSelector((state) => state.favoriteListSlice.value);
+  let movieFavoriteValue = useSelector(
+    (state) => state.favoriteListSlice.value
+  );
+  let TVShowsFavoriteValue = useSelector(
+    (state) => state.tvShowBookMarksSlice.value
+  );
+  let favoriteValue = movieFavoriteValue + TVShowsFavoriteValue;
 
   return (
     <div className="border-b-4 border-b-grey">

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Pagination } from "antd";
-import FavoriteItem from "./FavoriteItem";
+import TVShowsFavoriteItem from "./TVShowsFavoriteItem";
 
-export default function MovieFavorite() {
+export default function TVShowsFavorite() {
   let [currentPage, setcurrentPage] = useState(1);
   let [postsPerPage, setpostsPerPage] = useState(12);
-  let localStorageData = localStorage.getItem("favoriteList");
+  let localStorageData = localStorage.getItem("tvShowBookmarks");
   let favoriteListArr = JSON.parse(localStorageData);
   let totalPages = Math.ceil(favoriteListArr?.length);
   let [favoriteList, setfavoriteList] = useState(null);
   useEffect(() => {
-    let localStorageData = localStorage.getItem("favoriteList");
+    let localStorageData = localStorage.getItem("tvShowBookmarks");
     setfavoriteList(JSON.parse(localStorageData));
   }, [favoriteList]);
 
@@ -24,7 +24,7 @@ export default function MovieFavorite() {
     <div className="container mx-auto my-28">
       <div className="grid grid-cols-3 gap-20">
         {currentPosts?.map((item) => {
-          return <FavoriteItem data={item} />;
+          return <TVShowsFavoriteItem data={item} />;
         })}
       </div>
 

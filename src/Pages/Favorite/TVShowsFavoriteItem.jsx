@@ -1,25 +1,25 @@
 import React from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
-import "./movieItem.css";
-import { BsStarFill, BsFillBookmarkHeartFill } from "react-icons/bs";
+import "../../Components/MovieItem/movieItem.css";
+import { BsStarFill, BsFillBookmarkDashFill } from "react-icons/bs";
 import { CgMoreO } from "react-icons/cg";
-import { movieServices } from "../../services/movieService";
-import TVShowsTrailerModal from "../TrailerModal/TVShowsTrailerModal";
 import { useDispatch } from "react-redux";
-import { setFavoriteList } from "../../redux/tvShowBookMarksSlice";
+import { movieServices } from "../../services/movieService";
+import { removeFavoriteList } from "../../redux/tvShowBookMarksSlice";
+import TVShowsTrailerModal from "../../Components/TrailerModal/TVShowsTrailerModal";
 
-export default function TvShowsItem({ data }) {
+export default function TVShowsFavoriteItem({ data }) {
   let dispatch = useDispatch();
-  let handleBookmark = () => {
-    dispatch(setFavoriteList(data));
+  let handleRemoveBookmark = () => {
+    dispatch(removeFavoriteList(data.id));
   };
   return (
     <div className="w-96 h-56 rounded-3xl overflow-hidden">
       <div className="w-full h-full relative">
         <img src={movieServices.getImageBig(data?.backdrop_path)} alt="" />
         <Link
-          to={`/detailstvshow/${data?.id}`}
+          to={`/details/${data?.id}`}
           className="text-white hover:text-orangeColor"
         >
           <div>
@@ -31,9 +31,9 @@ export default function TvShowsItem({ data }) {
         </Link>
         <div
           className="text-white hover:text-orangeColor "
-          onClick={handleBookmark}
+          onClick={handleRemoveBookmark}
         >
-          <BsFillBookmarkHeartFill
+          <BsFillBookmarkDashFill
             className="absolute top-14 right-3 cursor-pointer "
             size={25}
           />
