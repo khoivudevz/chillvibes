@@ -27,15 +27,10 @@ export default function NavHeader() {
             />
           </div>
         </Link>
-        <div className="flex items-center space-x-3 text-white font-serif text-xl  navText">
-          <p>Movies</p>
-          <p>TV Shows</p>
-          <p>Animaitons</p>
-          <p>Plans</p>
-        </div>
-        <div className="flex items-center justify-center space-x-4">
+
+        <div className="flex items-center justify-center space-x-4 ">
           <Link to="/search">
-            <div className="flex items-center space-x-1">
+            <div className="items-center space-x-1 hidden md:flex">
               <FaSearch color="#f36f45" size={20} />
               <p className="text-orangeColor text-lg mb-0">Sreach...</p>
             </div>

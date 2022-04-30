@@ -21,10 +21,12 @@ export default function MovieList() {
   );
   let tvShowListData = useSelector((state) => state.tvShowsSlice.tvShowList);
   return (
-    <div className="flex text-white space-x-5 my-5">
-      <div className=" pr-5 border-r-grey border-r-8">
+    <div className="md:block lg:flex text-white space-x-5 my-5">
+      <div className=" pr-5 border-r-grey border-r-8 ">
         <div className="flex items-center justify-between">
-          <p className="text-3xl moveListFont cursor-default">Up Coming</p>
+          <p className="sm:text-3xl md:text-3xl lg:text-2xl xl:text-3xl moveListFont cursor-default">
+            Up Coming
+          </p>
           <div className="aLink">
             <Link to="/upcoming">
               <p id="upCSeeAll" className="flex items-center text-sm">
@@ -39,8 +41,8 @@ export default function MovieList() {
           })}
         </div>
       </div>
-      <div className="grid grid-rows-3  ">
-        <div className="my-4">
+      <div className=" h-full overflow-hidden">
+        <div className="my-4 ">
           <div className="flex items-center justify-between">
             <p className="text-3xl moveListFont cursor-default">Now Playing</p>
             <div className="aLink">

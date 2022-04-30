@@ -38,7 +38,7 @@ export default function SeeAllNowPlaying() {
       ) : (
         <div className="container mx-auto my-20">
           <p className="movieNameFont text-white text-3xl">Now playing</p>
-          <div className="grid grid-cols-3 gap-20">
+          <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-20">
             {data?.map((item) => {
               return <MovieItem data={item} />;
             })}

@@ -37,7 +37,7 @@ export default function SeeAllTVShows() {
       ) : (
         <div className="container mx-auto my-20">
           <p className="movieNameFont text-white text-3xl">TV SHOWS</p>
-          <div className="grid grid-cols-3 gap-20">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-20">
             {data?.map((item) => {
               return <TvShowsItem data={item} />;
             })}

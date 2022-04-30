@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <div className="border-t-4 border-t-grey">
       <div className="container mx-auto ">
-        <div className="flex items-center justify-center space-x-80 h-44">
+        <div className="flex items-center justify-between  h-44 ">
           <div>
             <img src="./images/logo/logo.png" alt="logo" />
           </div>

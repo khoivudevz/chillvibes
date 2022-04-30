@@ -15,9 +15,13 @@ export default function TvShowsItem({ data }) {
     dispatch(setFavoriteList(data));
   };
   return (
-    <div className="w-96 h-56 rounded-3xl overflow-hidden">
+    <div className="lg:w-[14rem] xl:w-96 h-56 rounded-3xl overflow-hidden">
       <div className="w-full h-full relative">
-        <img src={movieServices.getImageBig(data?.backdrop_path)} alt="" />
+        <img
+          className="object-cover w-full h-full"
+          src={movieServices.getImageBig(data?.backdrop_path)}
+          alt=""
+        />
         <Link
           to={`/detailstvshow/${data?.id}`}
           className="text-white hover:text-orangeColor"
@@ -39,16 +43,18 @@ export default function TvShowsItem({ data }) {
           />
         </div>
         <div className="w-full h-1/4 absolute bottom-0 backdrop-blur-sm bg-white/30 flex items-center justify-between px-5 titleFont">
-          <div className="flex items-center justify-between space-x-2 ">
-            <TVShowsTrailerModal data={data?.id} />
+          <div className="flex items-center justify-between space-x-2  ">
+            <div className="hidden md:block">
+              <TVShowsTrailerModal data={data?.id} />
+            </div>
             <div className="cursor-default">
               <p className="mb-0 text-white">{data?.name}</p>
-              <p className="mb-0 text-white">
+              <p className="mb-0 text-white sm:hidden md:hidden lg:hidden xl:block">
                 {moment(data?.first_air_date).format("MMMM YYYY")}
               </p>
             </div>
           </div>
-          <div className="flex items-center justify-center space-x-2 border-l-2 border-l-white/50 pl-7 ">
+          <div className="flex items-center justify-center space-x-2 border-l-2 border-l-white/50 pl-7 hidden xl:block ">
             <div>
               <BsStarFill size={20} color="white" />
             </div>
