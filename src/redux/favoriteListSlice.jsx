@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 
 const initialState = {
   value: localStorage.getItem("bookmarksValue"),
-  favoriteListData: [],
+  favoriteListData: null,
 };
 const Toast = Swal.mixin({
   toast: true,
@@ -21,30 +21,97 @@ const favoriteListSlice = createSlice({
   initialState,
   reducers: {
     setFavoriteList: (state, action) => {
-      state.value++;
-      localStorage.setItem("bookmarksValue", state.value);
-      state.favoriteListData.push(action);
-      localStorage.setItem(
-        "localStorage",
-        JSON.stringify(state.favoriteListData)
-      );
-      Toast.fire({
-        icon: "success",
-        title: "Add to bookmarks successfully",
-      });
+      if (state.favoriteListData !== null) {
+        let localStorageData = localStorage.getItem("favoriteList");
+        let favoriteList = JSON.parse(localStorageData);
+        let movieIDList = favoriteList.map((movie) => {
+          return movie.id;
+        });
+        let movieID = movieIDList.filter((id) => id === action.payload.id);
+        if (movieID[0] === action.payload.id) {
+          Toast.fire({
+            icon: "error",
+            title: "This movie already exists in bookmarks!",
+          });
+        } else {
+          state.value++;
+          localStorage.setItem("bookmarksValue", state.value);
+          state.favoriteListData.push(action.payload);
+          localStorage.setItem(
+            "favoriteList",
+            JSON.stringify(state.favoriteListData)
+          );
+          Toast.fire({
+            icon: "success",
+            title: "Add bookmarks successfully",
+          });
+        }
+      } else {
+        let localStorageData = localStorage.getItem("favoriteList");
+        let favoriteList = JSON.parse(localStorageData);
+        if (favoriteList !== null) {
+          state.favoriteListData = favoriteList;
+          let movieIDList = state.favoriteListData.map((movie) => {
+            return movie.id;
+          });
+          let movieID = movieIDList.filter((id) => id === action.payload.id);
+          if (movieID[0] === action.payload.id) {
+            Toast.fire({
+              icon: "error",
+              title: "This movie already exists in bookmarks!",
+            });
+          } else {
+            state.value++;
+            localStorage.setItem("bookmarksValue", state.value);
+            state.favoriteListData.push(action.payload);
+            localStorage.setItem(
+              "favoriteList",
+              JSON.stringify(state.favoriteListData)
+            );
+            Toast.fire({
+              icon: "success",
+              title: "Add bookmarks successfully",
+            });
+          }
+        } else {
+          state.favoriteListData = [];
+          let movieIDList = state.favoriteListData.map((movie) => {
+            return movie.id;
+          });
+          let movieID = movieIDList.filter((id) => id === action.payload.id);
+          if (movieID[0] === action.payload.id) {
+            Toast.fire({
+              icon: "error",
+              title: "This movie already exists in bookmarks!",
+            });
+          } else {
+            state.value++;
+            localStorage.setItem("bookmarksValue", state.value);
+            state.favoriteListData.push(action.payload);
+            localStorage.setItem(
+              "favoriteList",
+              JSON.stringify(state.favoriteListData)
+            );
+            Toast.fire({
+              icon: "success",
+              title: "Add bookmarks successfully",
+            });
+          }
+        }
+      }
     },
     removeFavoriteList: (state, action) => {
       state.value--;
       localStorage.setItem("bookmarksValue", state.value);
-      let localStorageData = localStorage.getItem("localStorage");
+      let localStorageData = localStorage.getItem("favoriteList");
       let favoriteList = JSON.parse(localStorageData);
       let index = favoriteList
         .map((e) => {
-          return e.payload.id;
+          return e.id;
         })
         .indexOf(action.payload);
       favoriteList.splice(index, 1);
-      localStorage.setItem("localStorage", JSON.stringify(favoriteList));
+      localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
       Toast.fire({
         icon: "success",
         title: "Remove out of bookmarks successfully",

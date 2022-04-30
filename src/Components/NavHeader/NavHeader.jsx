@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import "./navHeader.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import favoriteListSlice from "../../redux/favoriteListSlice";
 export default function NavHeader() {
   let favoriteValue = useSelector((state) => state.favoriteListSlice.value);
+
   return (
     <div className="border-b-4 border-b-grey">
       <div className="container mx-auto flex items-center justify-between h-24  ">
