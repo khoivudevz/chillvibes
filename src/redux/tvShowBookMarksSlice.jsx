@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import Swal from "sweetalert2";
 
 const initialState = {
-  value: localStorage.getItem("tvBookmarksValue"),
+  value: localStorage.getItem("tvBookmarksValue") * 1,
   favoriteListData: null,
 };
 const Toast = Swal.mixin({

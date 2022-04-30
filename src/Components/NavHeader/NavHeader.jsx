@@ -8,11 +8,13 @@ export default function NavHeader() {
   let movieFavoriteValue = useSelector(
     (state) => state.favoriteListSlice.value
   );
+  console.log("movieFavoriteValue", movieFavoriteValue);
   let TVShowsFavoriteValue = useSelector(
     (state) => state.tvShowBookMarksSlice.value
   );
+  console.log("TVShowsFavoriteValue", TVShowsFavoriteValue);
   let favoriteValue = movieFavoriteValue + TVShowsFavoriteValue;
-
+  console.log("favoriteValue", favoriteValue);
   return (
     <div className="border-b-4 border-b-grey">
       <div className="container mx-auto flex items-center justify-between h-24  ">
