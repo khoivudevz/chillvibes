@@ -51,7 +51,7 @@ export default function MovieItem({ data }) {
             </div>
             <div className="cursor-default">
               <p className="mb-0 text-white ">{data?.title}</p>
-              <p className="mb-0 text-white hidden ">
+              <p className="mb-0 text-white hidden lg:block ">
                 {moment(data?.release_date).format("MMMM YYYY")}
               </p>
             </div>

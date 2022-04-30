@@ -49,7 +49,7 @@ export default function TvShowsItem({ data }) {
             </div>
             <div className="cursor-default">
               <p className="mb-0 text-white">{data?.name}</p>
-              <p className="mb-0 text-white sm:hidden md:hidden lg:hidden xl:block">
+              <p className="mb-0 text-white hidden lg:block">
                 {moment(data?.first_air_date).format("MMMM YYYY")}
               </p>
             </div>
