@@ -21,7 +21,7 @@ export default function MovieFavorite() {
   let onChange = (page) => {
     setcurrentPage(page);
   };
-  return favoriteList?.length !== 0 ? (
+  return favoriteList?.length ? (
     <div className="container mx-auto my-28">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-20">
         {currentPosts?.map((item) => {
