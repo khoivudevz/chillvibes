@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import "./navHeader.css";
@@ -8,13 +8,10 @@ export default function NavHeader() {
   let movieFavoriteValue = useSelector(
     (state) => state.favoriteListSlice.value
   );
-  console.log("movieFavoriteValue", movieFavoriteValue);
   let TVShowsFavoriteValue = useSelector(
     (state) => state.tvShowBookMarksSlice.value
   );
-  console.log("TVShowsFavoriteValue", TVShowsFavoriteValue);
   let favoriteValue = movieFavoriteValue + TVShowsFavoriteValue;
-  console.log("favoriteValue", favoriteValue);
   return (
     <div className="border-b-4 border-b-grey">
       <div className="container mx-auto flex items-center justify-between h-24  ">
@@ -23,7 +20,7 @@ export default function NavHeader() {
             <img
               src="./images/logo/logo.png"
               alt="logo"
-              className="w-full h-full"
+              className="w-[400px] h-[80px] object-cover"
             />
           </div>
         </Link>
@@ -31,8 +28,8 @@ export default function NavHeader() {
         <div className="flex items-center justify-center space-x-4 ">
           <Link to="/search">
             <div className="items-center space-x-1 hidden md:flex">
-              <FaSearch color="#f36f45" size={20} />
-              <p className="text-orangeColor text-lg mb-0">Sreach...</p>
+              <FaSearch color="white" size={20} />
+              <p className="text-white text-lg mb-0">Sreach...</p>
             </div>
           </Link>
           <Link to="/favorite">

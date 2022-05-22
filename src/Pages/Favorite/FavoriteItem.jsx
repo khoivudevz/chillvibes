@@ -5,7 +5,6 @@ import "../../Components/MovieItem/movieItem.css";
 import { BsStarFill, BsFillBookmarkDashFill } from "react-icons/bs";
 import { CgMoreO } from "react-icons/cg";
 import { useDispatch } from "react-redux";
-
 import { movieServices } from "../../services/movieService";
 import TrailerModal from "../../Components/TrailerModal/TrailerModal";
 import { removeFavoriteList } from "../../redux/favoriteListSlice";

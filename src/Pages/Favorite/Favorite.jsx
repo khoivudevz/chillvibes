@@ -6,7 +6,7 @@ import TVShowsFavorite from "./TVShowsFavorite";
 const { TabPane } = Tabs;
 
 function callback(key) {
-  console.log(key);
+  // console.log(key);
 }
 export default function Favorite() {
   return (

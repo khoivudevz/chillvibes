@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Pagination } from "antd";
 import FavoriteItem from "./FavoriteItem";
+import EmptyFavorite from "../../Components/EmptyFavorite/EmptyFavorite";
 
 export default function MovieFavorite() {
-  let [currentPage, setcurrentPage] = useState(1);
-  let [postsPerPage, setpostsPerPage] = useState(12);
   let localStorageData = localStorage.getItem("favoriteList");
   let favoriteListArr = JSON.parse(localStorageData);
-  let totalPages = Math.ceil(favoriteListArr?.length);
   let [favoriteList, setfavoriteList] = useState(null);
+  let [currentPage, setcurrentPage] = useState(1);
+  let [postsPerPage, setpostsPerPage] = useState(12);
+  let totalPages = Math.ceil(favoriteListArr?.length);
   useEffect(() => {
     let localStorageData = localStorage.getItem("favoriteList");
     setfavoriteList(JSON.parse(localStorageData));
@@ -20,7 +21,7 @@ export default function MovieFavorite() {
   let onChange = (page) => {
     setcurrentPage(page);
   };
-  return (
+  return favoriteList?.length !== 0 ? (
     <div className="container mx-auto my-28">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-20">
         {currentPosts?.map((item) => {
@@ -38,5 +39,7 @@ export default function MovieFavorite() {
       </div>
       <div className="mb-96"></div>
     </div>
+  ) : (
+    <EmptyFavorite />
   );
 }

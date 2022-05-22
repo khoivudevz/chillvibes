@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Pagination } from "antd";
 import TVShowsFavoriteItem from "./TVShowsFavoriteItem";
+import EmptyFavorite from "../../Components/EmptyFavorite/EmptyFavorite";
 
 export default function TVShowsFavorite() {
   let [currentPage, setcurrentPage] = useState(1);
@@ -20,7 +21,7 @@ export default function TVShowsFavorite() {
   let onChange = (page) => {
     setcurrentPage(page);
   };
-  return (
+  return favoriteList?.length ? (
     <div className="container mx-auto my-28">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-20">
         {currentPosts?.map((item) => {
@@ -38,5 +39,7 @@ export default function TVShowsFavorite() {
       </div>
       <div className="mb-96"></div>
     </div>
+  ) : (
+    <EmptyFavorite />
   );
 }

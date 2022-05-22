@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import ReactPlayer from "react-player";
 import moment from "moment";
 import { Progress } from "antd";
@@ -11,9 +11,13 @@ import DetailTVShowsCarousel from "./DetailTVShowsCarousel";
 import UsersCmt from "./UsersCmt";
 import { removeLoading, setLoading } from "../../redux/loadingSlice";
 import Loading from "../../Components/Loading/Loading";
+import { setFavoriteList } from "../../redux/favoriteListSlice";
 
 export default function DetailTVShows() {
   let { id } = useParams();
+  let handleBookmark = () => {
+    dispatch(setFavoriteList(inforData));
+  };
   const [inforData, setinforData] = useState(null);
   const [trailer, settrailer] = useState(null);
   const [similarTVShows, setsimilarTVShows] = useState(null);
@@ -86,9 +90,20 @@ export default function DetailTVShows() {
               />
             </div>
             <div className="flex flex-col items-center justify-center text-white">
-              <p className="movieNameFont mt-10 text-4xl">
-                " {inforData?.original_name} "
-              </p>
+              <div className="flex items-center justify-center space-x-3">
+                <p className="movieNameFont mt-10 text-4xl">
+                  " {inforData?.original_name} "
+                </p>
+                <div
+                  className="text-white hover:text-orangeColor "
+                  onClick={handleBookmark}
+                >
+                  <BsFillBookmarkHeartFill
+                    className="cursor-pointer "
+                    size={25}
+                  />
+                </div>
+              </div>
               <p className="overviewFont ">{inforData?.overview}</p>
             </div>
             <div className="my-5">

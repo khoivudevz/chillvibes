@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import ReactPlayer from "react-player";
 import moment from "moment";
 import { Progress } from "antd";
@@ -11,6 +11,7 @@ import "../../Components/MovieItem/movieItem.css";
 import UsersCmt from "./UsersCmt";
 import { removeLoading, setLoading } from "../../redux/loadingSlice";
 import Loading from "../../Components/Loading/Loading";
+import { setFavoriteList } from "../../redux/favoriteListSlice";
 
 export default function DetailMovie() {
   let { id } = useParams();
@@ -20,7 +21,9 @@ export default function DetailMovie() {
   const [cmt, setcmt] = useState(null);
   let loading = useSelector((state) => state.loadingSlice.isLoading);
   let dispatch = useDispatch();
-
+  let handleBookmark = () => {
+    dispatch(setFavoriteList(inforData));
+  };
   useEffect(() => {
     dispatch(setLoading());
     movieServices
@@ -86,9 +89,20 @@ export default function DetailMovie() {
                 />
               </div>
               <div className="flex flex-col items-center justify-center text-white">
-                <p className="movieNameFont mt-10 text-4xl">
-                  " {inforData?.title} "
-                </p>
+                <div className="flex items-center justify-center space-x-3">
+                  <p className="movieNameFont mt-10 text-4xl">
+                    " {inforData?.title} "
+                  </p>
+                  <div
+                    className="text-white hover:text-orangeColor "
+                    onClick={handleBookmark}
+                  >
+                    <BsFillBookmarkHeartFill
+                      className="cursor-pointer "
+                      size={25}
+                    />
+                  </div>
+                </div>
                 <p className="overviewFont ">{inforData?.overview}</p>
               </div>
               <div className="my-5">
