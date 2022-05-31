@@ -139,7 +139,7 @@ export default function DetailMovie() {
                 </div>
               </div>
             </div>
-            <div className="my-10">
+            <div className="my-10 hidden md:block ">
               <div className="container mx-auto ">
                 <div className="grid grid-cols-3 gap-5">
                   {cmt?.map((item, index) => {

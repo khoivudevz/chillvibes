@@ -15,11 +15,44 @@ export default function DetailMovieCarousel({ data }) {
   let navigate = useNavigate();
   let settings = {
     arrows: true,
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+          infinite: true,
+          dots: true,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+          arrows: false,
+        },
+      },
+    ],
   };
   const goToDetails = (id) => {
     navigate(`/details/${id}`);
@@ -33,7 +66,8 @@ export default function DetailMovieCarousel({ data }) {
             <div className="w-full h-full relative rounded-3xl overflow-hidden">
               <img
                 src={movieServices?.getImageBig(movie?.backdrop_path)}
-                alt=""
+                alt="image"
+                className="object-cover "
               />
               <div
                 onClick={() => {

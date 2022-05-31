@@ -9,6 +9,17 @@
   font-size: 30px !important;
 }
 
+.slick-dots li button:before {
+  color: #f36f45 !important;
+  opacity: 1 !important;
+  font-size: 12px !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: white !important;
+  opacity: 1 !important;
+}
+
 .slick-next {
   top: 50% !important;
 }
