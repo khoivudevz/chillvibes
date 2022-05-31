@@ -40,7 +40,7 @@ export default function TrailerModal({ data }) {
   return (
     <div id="trailerModal" className="w-full h-full">
       <Button type="primary" onClick={showModal}>
-        <div className="hover:text-orangeColor">
+        <div className="hover:text-orangeColor transition-all">
           <BsFillPlayCircleFill size={30} />
         </div>
       </Button>

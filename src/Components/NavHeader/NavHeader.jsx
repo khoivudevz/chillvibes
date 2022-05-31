@@ -27,13 +27,13 @@ export default function NavHeader() {
 
         <div className="flex items-center justify-center space-x-4 ">
           <Link to="/search">
-            <div className="items-center space-x-1 hidden md:flex">
-              <FaSearch color="white" size={20} />
-              <p className="text-white text-lg mb-0">Sreach...</p>
+            <div className="items-center text-white hover:text-orangeColor transition-all space-x-1 hidden md:flex">
+              <FaSearch size={20} />
+              <p className=" text-lg mb-0">Sreach...</p>
             </div>
           </Link>
           <Link to="/favorite">
-            <div className="relative px-4 py-3 bg-orangeColor rounded-3xl text-white text-base navText hover:bg-white hover:text-orangeColor">
+            <div className="relative px-4 py-3 bg-orangeColor rounded-3xl text-white text-base navText hover:bg-white hover:text-orangeColor transition-all">
               <div>
                 <BsFillBookmarkHeartFill size={30} />
               </div>

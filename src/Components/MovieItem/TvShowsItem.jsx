@@ -24,7 +24,7 @@ export default function TvShowsItem({ data }) {
         />
         <Link
           to={`/detailstvshow/${data?.id}`}
-          className="text-white hover:text-orangeColor"
+          className="text-white hover:text-orangeColor transition-all"
         >
           <div>
             <CgMoreO
@@ -34,7 +34,7 @@ export default function TvShowsItem({ data }) {
           </div>
         </Link>
         <div
-          className="text-white hover:text-orangeColor "
+          className="text-white hover:text-orangeColor transition-all"
           onClick={handleBookmark}
         >
           <BsFillBookmarkHeartFill

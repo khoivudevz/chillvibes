@@ -26,7 +26,7 @@ export default function MovieItem({ data }) {
         />
         <Link
           to={`/details/${data?.id}`}
-          className="text-white hover:text-orangeColor"
+          className="text-white hover:text-orangeColor transition-all"
         >
           <div>
             <CgMoreO
@@ -36,7 +36,7 @@ export default function MovieItem({ data }) {
           </div>
         </Link>
         <div
-          className="text-white hover:text-orangeColor "
+          className="text-white hover:text-orangeColor transition-all"
           onClick={handleBookmark}
         >
           <BsFillBookmarkHeartFill
@@ -56,7 +56,7 @@ export default function MovieItem({ data }) {
               </p>
             </div>
           </div>
-          <div className="flex items-center justify-center border-l-2 border-l-white/50 pl-7 hidden xl:block ">
+          <div className="items-center justify-center border-l-2 border-l-white/50 pl-7 hidden xl:flex ">
             <div>
               <BsStarFill size={20} color="white" />
             </div>

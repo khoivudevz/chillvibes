@@ -8,7 +8,6 @@ import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import movieSlice from "./redux/movieSlice";
 import tvShowsSlice from "./redux/tvShowsSlice";
-import searchSlice from "./redux/searchSlice";
 import favoriteListSlice from "./redux/favoriteListSlice";
 import loadingSlice from "./redux/loadingSlice";
 import tvShowBookMarksSlice from "./redux/tvShowBookMarksSlice";
@@ -17,7 +16,6 @@ const store = configureStore({
   reducer: {
     movieSlice,
     tvShowsSlice,
-    searchSlice,
     favoriteListSlice,
     loadingSlice,
     tvShowBookMarksSlice,
