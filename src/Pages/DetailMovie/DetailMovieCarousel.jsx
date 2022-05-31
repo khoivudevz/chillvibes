@@ -67,7 +67,7 @@ export default function DetailMovieCarousel({ data }) {
               <img
                 src={movieServices?.getImageBig(movie?.backdrop_path)}
                 alt="image"
-                className="object-cover "
+                className="object-cover w-full"
               />
               <div
                 onClick={() => {

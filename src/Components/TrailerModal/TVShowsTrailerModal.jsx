@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Modal, Button } from "antd";
 import { BsFillPlayCircleFill } from "react-icons/bs";
-import ReactPlayer from "react-player";
 import "./trailerModal.css";
 import { tvServices } from "../../services/tvService";
+import Player from "../Player/Player";
 export default function TVShowsTrailerModal({ data }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [trailer, settrailer] = useState(null);
@@ -50,13 +50,15 @@ export default function TVShowsTrailerModal({ data }) {
         onCancel={handleCancel}
         destroyOnClose={true}
       >
-        <ReactPlayer
-          url={
-            trailer === null
-              ? ""
-              : `https://www.youtube.com/watch?v=${trailer[0]?.key}`
-          }
-        />
+        <div className="w-full">
+          <Player
+            videoUrl={
+              trailer === null
+                ? ""
+                : `https://www.youtube.com/watch?v=${trailer[0]?.key}`
+            }
+          />
+        </div>
       </Modal>
     </div>
   );

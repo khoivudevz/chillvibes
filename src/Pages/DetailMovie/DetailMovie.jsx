@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import ReactPlayer from "react-player";
+import Player from "../../Components/Player/Player.js";
 import moment from "moment";
 import { Progress } from "antd";
 import { useParams } from "react-router-dom";
@@ -105,14 +106,16 @@ export default function DetailMovie() {
                 </div>
                 <p className="overviewFont ">{inforData?.overview}</p>
               </div>
-              <div className="my-5">
-                <ReactPlayer
-                  url={
-                    trailer === null
-                      ? ""
-                      : `https://www.youtube.com/watch?v=${trailer[0]?.key}`
-                  }
-                />
+              <div className="my-5 w-full overflow-hidden flex items-center justify-center">
+                <div className="w-2/3">
+                  <Player
+                    videoUrl={
+                      trailer === null
+                        ? ""
+                        : `https://www.youtube.com/watch?v=${trailer[0]?.key}`
+                    }
+                  />
+                </div>
               </div>
               <div className="grid grid-cols-2 my-10">
                 <div className="flex">

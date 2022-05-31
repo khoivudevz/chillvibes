@@ -4,6 +4,7 @@ import { BsFillPlayCircleFill } from "react-icons/bs";
 import ReactPlayer from "react-player";
 import "./trailerModal.css";
 import { movieServices } from "../../services/movieService";
+import Player from "../Player/Player";
 
 export default function TrailerModal({ data }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -37,7 +38,7 @@ export default function TrailerModal({ data }) {
   };
 
   return (
-    <div id="trailerModal">
+    <div id="trailerModal" className="w-full h-full">
       <Button type="primary" onClick={showModal}>
         <div className="hover:text-orangeColor">
           <BsFillPlayCircleFill size={30} />
@@ -49,13 +50,15 @@ export default function TrailerModal({ data }) {
         onCancel={handleCancel}
         destroyOnClose={true}
       >
-        <ReactPlayer
-          url={
-            trailer === null
-              ? ""
-              : `https://www.youtube.com/watch?v=${trailer[0].key}`
-          }
-        />
+        <div className="w-full">
+          <Player
+            videoUrl={
+              trailer === null
+                ? ""
+                : `https://www.youtube.com/watch?v=${trailer[0].key}`
+            }
+          />
+        </div>
       </Modal>
     </div>
   );
