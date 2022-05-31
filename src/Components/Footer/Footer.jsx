@@ -3,14 +3,14 @@ import { AiFillFacebook, AiFillInstagram, AiFillMail } from "react-icons/ai";
 import "./footer.css";
 export default function Footer() {
   return (
-    <div className="border-t-4 border-t-grey">
+    <div className="border-t-4 border-t-grey overflow-hidden">
       <div className="container mx-auto ">
         <div className="flex items-center justify-between  h-44 ">
           <div>
             <img
               src="./images/logo/logo.png"
               alt="logo"
-              className="h-[70px] object-cover"
+              className="object-cover h-full"
             />
           </div>
           <div id="footerText">
