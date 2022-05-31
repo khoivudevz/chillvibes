@@ -45,7 +45,7 @@ export default function SeeAllPopular() {
           </div>
           <div className="flex items-center justify-center my-20">
             <Pagination
-              defaultCurrent={1}
+              defaultCurrent={page}
               pageSize={20}
               total={total}
               onChange={onChange}
