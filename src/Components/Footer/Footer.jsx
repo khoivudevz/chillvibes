@@ -7,11 +7,7 @@ export default function Footer() {
       <div className="container mx-auto ">
         <div className="flex items-center justify-between  h-44 ">
           <div>
-            <img
-              src="./images/logo/logo.png"
-              alt="logo"
-              className="w-[400px] h-[80px] object-cover"
-            />
+            <img src="./images/logo/logo.png" alt="logo" />
           </div>
           <div id="footerText">
             <p className="text-white">

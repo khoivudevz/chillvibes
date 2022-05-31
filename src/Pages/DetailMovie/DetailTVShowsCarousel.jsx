@@ -16,11 +16,44 @@ export default function DetailTVShowsCarousel({ data }) {
   let navigate = useNavigate();
   let settings = {
     arrows: true,
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+          infinite: true,
+          dots: true,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+          arrows: false,
+        },
+      },
+    ],
   };
   const goToDetail = (id) => {
     navigate(`/details/${id}`);
@@ -33,7 +66,11 @@ export default function DetailTVShowsCarousel({ data }) {
         return (
           <div className="w-96 h-56 rounded-3xl overflow-hidden px-5">
             <div className="w-full h-full relative rounded-3xl overflow-hidden">
-              <img src={tvServices?.getImageBig(movie?.backdrop_path)} alt="" />
+              <img
+                src={tvServices?.getImageBig(movie?.backdrop_path)}
+                className="w-full h-full object-cover"
+                alt="image"
+              />
               <div
                 onClick={() => {
                   goToDetail(movie?.id);
