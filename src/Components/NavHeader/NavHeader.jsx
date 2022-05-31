@@ -20,7 +20,7 @@ export default function NavHeader() {
             <img
               src="./images/logo/logo.png"
               alt="logo"
-              className="w-[400px] h-[80px] object-cover"
+              className="object-cover"
             />
           </div>
         </Link>
